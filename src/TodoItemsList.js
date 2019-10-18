@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
+import TodoItem from "./TodoItem";
 
 function TodoItemsList() {
-  const todoItemsArray = localStorage.getItem("todoItemsArray");
+  const initialArrayString = localStorage.getItem("todoItemsArray");
+  const initialArray = JSON.parse(initialArrayString);
+  const [todoItemsArray] = useState(initialArray || []);
+
+  const todoItems = todoItemsArray.map(item => <TodoItem key={todoItemsArray.indexOf(item) + 1} name={item} />)
 
   return (
     <div>
-      <p>{todoItemsArray}</p>
+      <p>{todoItems}</p>
     </div>
   )
 }
