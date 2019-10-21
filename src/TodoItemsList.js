@@ -3,10 +3,13 @@ import TodoItem from "./TodoItem";
 
 function TodoItemsList(props) {
   
-  //creates TodoItem components
+    //creates TodoItem components
   const todoItems = props.todoItemsArray.map(item =>
-    <TodoItem key={props.todoItemsArray.indexOf(item) + 1}
-              name={item} />)
+    <TodoItem key={props.todoItemsArray.indexOf(item)}
+              id={props.todoItemsArray.indexOf(item)}
+              name={item.name}
+              completed={item.completed}
+              handleCheck={props.handleCheck} />)
 
   return (
     <div>

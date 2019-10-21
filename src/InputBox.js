@@ -5,7 +5,7 @@ function InputBox(props) {
     <form onSubmit={props.handleSubmit}>
       <input type="text"
              name="inputBox"
-             value={props.todoItem}
+             value={props.todoItem.name}
              placeholder="New Todo Item"
              onChange={props.handleChange} />
       <button>Add</button>

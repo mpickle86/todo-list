@@ -4,22 +4,42 @@ import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
 
 function App() {
-  const [todoItem, setTodoItem] = useState("");
-  
+  const [todoItem, setTodoItem] = useState({
+                                    name: "",
+                                    completed: false
+                                  });
+
   //initializes todoItemsArray from localStorage
   const initialArrayString = localStorage.getItem("todoItemsArray");
   const initialArray = JSON.parse(initialArrayString);
   const [todoItemsArray, setTodoItemsArray] = useState(initialArray || []); 
 
   function handleChange(event) {
-    setTodoItem(event.target.value);
+    setTodoItem({
+      name: event.target.value,
+      completed: false
+    });
   }
 
   //adds new item to todoItemsArray in state
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem));
-    setTodoItem("");
+    setTodoItem({
+      name: "",
+      completed: false
+    });
     event.preventDefault();
+  }
+
+  //toggles "completed" property when checkbox is checked
+  function handleCheck(id) {
+    setTodoItemsArray(prevArray => prevArray.map(item => {
+      if (prevArray.indexOf(item) === id) {
+        return { ...item, completed: !item.completed };
+      } else {
+        return item;
+      }
+    }))
   }
 
   //stores todoItemsArray in localStorage when new item is submitted
@@ -31,8 +51,10 @@ function App() {
     <div className="App">
       <InputBox handleChange={handleChange}
                 handleSubmit={handleSubmit}
-                todoItem={todoItem}/>
-      <TodoItemsList todoItemsArray={todoItemsArray}/>
+                todoItem={todoItem}
+                />
+      <TodoItemsList todoItemsArray={todoItemsArray}
+                     handleCheck={handleCheck} />
       {/*<CompletedList />*/}
     </div>  
   );
