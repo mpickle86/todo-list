@@ -36,22 +36,13 @@ function App() {
     event.preventDefault();
   }
 
-  //toggles "completed" property when checkbox is checked
+  //moves item to completedItemsArray when checkbox is checked
   function handleCheck(id) {
-    setTodoItemsArray(prevArray => prevArray.map(item => {
-      if (prevArray.indexOf(item) === id) {
-        return { ...item, completed: !item.completed };
-      } else {
-        return item;
-      }
-    }))
-    
-    //THIS PART DOESN'T WORK
     setCompletedItemsArray(prevArray => prevArray.concat(todoItemsArray.filter(item => {
-      return item.completed === true;
+      return todoItemsArray.indexOf(item) === id;
     })))
     setTodoItemsArray(prevArray => prevArray.filter(item => {
-      return item.completed === false;
+      return prevArray.indexOf(item) !== id;
     }))
   }
 
