@@ -4,7 +4,7 @@ import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
 
 function App() {
-  const [todoItem, setTodoItem] = useState({ name: "" });
+  const [todoItem, setTodoItem] = useState({ name: "", completed: false });
 
   //initializes todoItemsArray from localStorage
   const initialTodoArrayString = localStorage.getItem("todoItemsArray");
@@ -17,23 +17,26 @@ function App() {
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
   function handleChange(event) {
-    setTodoItem({ name: event.target.value });
+    setTodoItem({ name: event.target.value, completed: false });
   }
 
   //adds new item to todoItemsArray in state
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem));
-    setTodoItem({ name: "" });
+    setTodoItem({ name: "", completed: false });
     event.preventDefault();
   }
 
-  //moves item to completedItemsArray when checkbox is checked
+  //moves item to completedItemsArray and toggles "completed" state when checkbox is checked
   function handleCheck(id) {
     setCompletedItemsArray(prevArray => prevArray.concat(todoItemsArray.filter(item => {
       return todoItemsArray.indexOf(item) === id;
     })))
     setTodoItemsArray(prevArray => prevArray.filter(item => {
       return prevArray.indexOf(item) !== id;
+    }))
+    setCompletedItemsArray(prevArray => prevArray.map(item => {
+      return { ...item, completed: true };
     }))
   }
 
