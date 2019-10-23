@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
+import CompletedItemsList from "./CompletedItemsList";
 
 function App() {
   const [todoItem, setTodoItem] = useState({ name: "", completed: false });
@@ -40,6 +41,19 @@ function App() {
     }))
   }
 
+  //moves item back to todoItemsArray and toggles "completed" state when checkbox is unchecked
+  function handleUncheck(id) {
+    setTodoItemsArray(prevArray => prevArray.concat(completedItemsArray.filter(item => {
+      return completedItemsArray.indexOf(item) === id;
+    })))
+    setCompletedItemsArray(prevArray => prevArray.filter(item => {
+      return prevArray.indexOf(item) !== id;
+    }))
+    setTodoItemsArray(prevArray => prevArray.map(item => {
+      return { ...item, completed: false };
+    }))
+  }
+
   //stores todoItemsArray in localStorage when new item is submitted
   useEffect(() => {
     localStorage.setItem("todoItemsArray", JSON.stringify(todoItemsArray));
@@ -58,7 +72,8 @@ function App() {
                 />
       <TodoItemsList todoItemsArray={todoItemsArray}
                      handleCheck={handleCheck} />
-      {/*<CompletedList />*/}
+      <CompletedItemsList completedItemsArray={completedItemsArray}
+                          handleUncheck={handleUncheck} />
     </div>  
   );
 }
