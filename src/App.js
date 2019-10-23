@@ -4,10 +4,7 @@ import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
 
 function App() {
-  const [todoItem, setTodoItem] = useState({
-                                    name: "",
-                                    completed: false
-                                  });
+  const [todoItem, setTodoItem] = useState({ name: "" });
 
   //initializes todoItemsArray from localStorage
   const initialTodoArrayString = localStorage.getItem("todoItemsArray");
@@ -20,19 +17,13 @@ function App() {
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
   function handleChange(event) {
-    setTodoItem({
-      name: event.target.value,
-      completed: false
-    });
+    setTodoItem({ name: event.target.value });
   }
 
   //adds new item to todoItemsArray in state
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem));
-    setTodoItem({
-      name: "",
-      completed: false
-    });
+    setTodoItem({ name: "" });
     event.preventDefault();
   }
 
@@ -51,7 +42,7 @@ function App() {
     localStorage.setItem("todoItemsArray", JSON.stringify(todoItemsArray));
   }, [todoItemsArray]);
   
-  //stores completedItemsArray in localStorage when new item is submitted
+  //stores completedItemsArray in localStorage when new item is added
   useEffect(() => {
     localStorage.setItem("completedItemsArray", JSON.stringify(completedItemsArray));
   }, [completedItemsArray]);
