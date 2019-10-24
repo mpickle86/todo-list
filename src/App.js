@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import './App.css';
 import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
 import CompletedItemsList from "./CompletedItemsList";
 
 function App() {
-  const [todoItem, setTodoItem] = useState({ name: "" });
+  const [todoItem, setTodoItem] = useReducer(
+    (state, newState) => ({...state, ...newState}),
+    { name: "", urgency: "", completed: false }
+  );
 
   //initializes todoItemsArray from localStorage
   const initialTodoArrayString = localStorage.getItem("todoItemsArray");
@@ -17,14 +20,22 @@ function App() {
   const initialCompletedArray = JSON.parse(initialCompletedArrayString);
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
+  //handles controlled inputs for name and urgency
   function handleChange(event) {
-    setTodoItem({ name: event.target.value });
+    setTodoItem({
+      [event.target.name]: event.target.value,
+      completed: false
+    });
   }
 
   //adds new item to todoItemsArray in state
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem));
-    setTodoItem({ name: "", completed: false });
+    setTodoItem({ 
+      name: "",
+      urgency: "",
+      completed: false
+    });
     event.preventDefault();
   }
 

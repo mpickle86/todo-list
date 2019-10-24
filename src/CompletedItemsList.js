@@ -7,6 +7,7 @@ function CompletedItemsList(props) {
     <CompletedItem key={props.completedItemsArray.indexOf(item)}
               id={props.completedItemsArray.indexOf(item)}
               name={item.name}
+              urgency={item.urgency}
               completed={item.completed}
               handleUncheck={props.handleUncheck}
               handleRemove={props.handleRemove}

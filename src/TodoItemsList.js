@@ -8,6 +8,7 @@ function TodoItemsList(props) {
     <TodoItem key={props.todoItemsArray.indexOf(item)}
               id={props.todoItemsArray.indexOf(item)}
               name={item.name}
+              urgency={item.urgency}
               completed={item.completed}
               handleCheck={props.handleCheck}
               handleRemove={props.handleRemove}
