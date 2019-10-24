@@ -5,7 +5,7 @@ import TodoItemsList from "./TodoItemsList";
 import CompletedItemsList from "./CompletedItemsList";
 
 function App() {
-  const [todoItem, setTodoItem] = useState({ name: "", completed: false });
+  const [todoItem, setTodoItem] = useState({ name: "" });
 
   //initializes todoItemsArray from localStorage
   const initialTodoArrayString = localStorage.getItem("todoItemsArray");
@@ -18,7 +18,7 @@ function App() {
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
   function handleChange(event) {
-    setTodoItem({ name: event.target.value, completed: false });
+    setTodoItem({ name: event.target.value });
   }
 
   //adds new item to todoItemsArray in state
@@ -54,6 +54,19 @@ function App() {
     }))
   }
 
+  //removes item from its array when "Remove" button is clicked
+  function handleRemove(id, completed) {
+    if (completed === false) {
+      setTodoItemsArray(prevArray => prevArray.filter(item => {
+        return prevArray.indexOf(item) !== id;
+      }))
+    } else {
+      setCompletedItemsArray(prevArray => prevArray.filter(item => {
+        return prevArray.indexOf(item) !==id;
+      }))
+    }
+  }
+
   //stores todoItemsArray in localStorage when new item is submitted
   useEffect(() => {
     localStorage.setItem("todoItemsArray", JSON.stringify(todoItemsArray));
@@ -69,11 +82,15 @@ function App() {
       <InputBox handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 todoItem={todoItem}
-                />
+      />
       <TodoItemsList todoItemsArray={todoItemsArray}
-                     handleCheck={handleCheck} />
+                     handleCheck={handleCheck}
+                     handleRemove={handleRemove}
+      />
       <CompletedItemsList completedItemsArray={completedItemsArray}
-                          handleUncheck={handleUncheck} />
+                          handleUncheck={handleUncheck}
+                          handleRemove={handleRemove}
+      />
     </div>  
   );
 }

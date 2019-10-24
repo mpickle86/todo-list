@@ -8,7 +8,10 @@ function CompletedItemsList(props) {
               id={props.completedItemsArray.indexOf(item)}
               name={item.name}
               completed={item.completed}
-              handleUncheck={props.handleUncheck} />)
+              handleUncheck={props.handleUncheck}
+              handleRemove={props.handleRemove}
+    />
+)
 
   return (
     <div>

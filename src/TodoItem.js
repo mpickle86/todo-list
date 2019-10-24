@@ -9,6 +9,7 @@ function TodoItem(props) {
              onChange={() => props.handleCheck(props.id)}
              />
       <label>{props.name}</label>
+      <button onClick={() => props.handleRemove(props.id, props.completed)}>Remove</button>
     </div>
   )
 }

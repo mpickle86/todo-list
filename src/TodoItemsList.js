@@ -9,7 +9,10 @@ function TodoItemsList(props) {
               id={props.todoItemsArray.indexOf(item)}
               name={item.name}
               completed={item.completed}
-              handleCheck={props.handleCheck} />)
+              handleCheck={props.handleCheck}
+              handleRemove={props.handleRemove}
+    />
+  )
 
   return (
     <div>

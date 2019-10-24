@@ -8,6 +8,7 @@ function CompletedItem(props) {
              onChange={() => props.handleUncheck(props.id)}
              />
       <label>{props.name}</label>
+      <button onClick={() => props.handleRemove(props.id, props.completed)}>Remove</button>
     </div>
   )
 }
