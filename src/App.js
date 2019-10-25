@@ -28,9 +28,13 @@ function App() {
     });
   }
 
-  //adds new item to todoItemsArray in state
+  //adds new item to todoItemsArray in state and sorts by urgency
   function handleSubmit(event) {
-    setTodoItemsArray(prevArray => prevArray.concat(todoItem));
+    setTodoItemsArray(prevArray => prevArray.concat(todoItem)
+      .sort((a,b) => {
+        return a.urgency - b.urgency;
+      })
+    )
     setTodoItem({ 
       name: "",
       urgency: "",
@@ -39,29 +43,32 @@ function App() {
     event.preventDefault();
   }
 
-  //moves item to completedItemsArray and toggles "completed" state when checkbox is checked
+  //moves item to completedItemsArray and toggles "completed" when checkbox is checked
   function handleCheck(id) {
     setCompletedItemsArray(prevArray => prevArray.concat(todoItemsArray.filter(item => {
       return todoItemsArray.indexOf(item) === id;
-    })))
+    })).map(item => {
+         return { ...item, completed: true };
+       })
+    )
     setTodoItemsArray(prevArray => prevArray.filter(item => {
       return prevArray.indexOf(item) !== id;
     }))
-    setCompletedItemsArray(prevArray => prevArray.map(item => {
-      return { ...item, completed: true };
-    }))
   }
 
-  //moves item back to todoItemsArray and toggles "completed" state when checkbox is unchecked
+  //moves item back to todoItemsArray, sorts by urgency, and toggles "completed" when checkbox is unchecked
   function handleUncheck(id) {
     setTodoItemsArray(prevArray => prevArray.concat(completedItemsArray.filter(item => {
       return completedItemsArray.indexOf(item) === id;
-    })))
+    })).sort((a,b) => {
+         return a.urgency - b.urgency;
+       })
+       .map(item => {
+         return { ...item, completed: false };
+       })
+    )
     setCompletedItemsArray(prevArray => prevArray.filter(item => {
       return prevArray.indexOf(item) !== id;
-    }))
-    setTodoItemsArray(prevArray => prevArray.map(item => {
-      return { ...item, completed: false };
     }))
   }
 
