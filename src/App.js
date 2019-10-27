@@ -20,6 +20,8 @@ function App() {
   const initialCompletedArray = JSON.parse(initialCompletedArrayString);
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
+  const [editModal, setEditModal] = useState({ show: false, itemToEdit: "" });
+
   //handles controlled inputs for name and urgency
   function handleChange(event) {
     setTodoItem({
@@ -80,9 +82,35 @@ function App() {
       }))
     } else {
       setCompletedItemsArray(prevArray => prevArray.filter(item => {
-        return prevArray.indexOf(item) !==id;
+        return prevArray.indexOf(item) !== id;
       }))
     }
+  }
+
+  //opens EditModal when Edit button is clicked
+  function handleEditButton(id) {
+    setEditModal({
+      show: true,
+      itemToEdit: id
+    });
+  }
+
+  //replaces item in todoItemsArray with newly edited item, sorts by urgency,
+  //and hides EditModal when "Save Changes" button is clicked
+  function handleSaveEdit(event) {
+    setTodoItemsArray(prevArray => prevArray.filter(item => {
+      return prevArray.indexOf(item) !== editModal.itemToEdit;
+    })
+    .concat(todoItem)
+      .sort((a,b) => {
+        return a.urgency - b.urgency;
+      })
+    )
+    setEditModal({
+      show: false,
+      itemToEdit: ""
+    })
+    event.preventDefault();
   }
 
   //stores todoItemsArray in localStorage when new item is submitted
@@ -102,8 +130,13 @@ function App() {
                 todoItem={todoItem}
       />
       <TodoItemsList todoItemsArray={todoItemsArray}
+                     todoItem={todoItem}
                      handleCheck={handleCheck}
+                     handleEditButton={handleEditButton}
+                     handleChange={handleChange}
+                     handleSaveEdit={handleSaveEdit}
                      handleRemove={handleRemove}
+                     editModal={editModal}
       />
       <CompletedItemsList completedItemsArray={completedItemsArray}
                           handleUncheck={handleUncheck}

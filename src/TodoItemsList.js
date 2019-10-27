@@ -1,5 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import EditModal from "./EditModal";
 
 function TodoItemsList(props) {
   
@@ -11,6 +12,7 @@ function TodoItemsList(props) {
               urgency={item.urgency}
               completed={item.completed}
               handleCheck={props.handleCheck}
+              handleEditButton={props.handleEditButton}
               handleRemove={props.handleRemove}
     />
   )
@@ -18,6 +20,11 @@ function TodoItemsList(props) {
   return (
     <div>
       {todoItems}
+      <EditModal editModal={props.editModal}
+                 todoItem={props.todoItem}
+                 todoItemsArray={props.todoItemsArray}
+                 handleChange={props.handleChange}
+                 handleSaveEdit={props.handleSaveEdit} />
     </div>
   )
 }

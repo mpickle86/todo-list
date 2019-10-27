@@ -1,0 +1,8 @@
+.editModal {
+  background-color: white;
+  border: solid gray 2px;
+}
+
+.hidden {
+  display: none;
+}
