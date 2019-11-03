@@ -34,6 +34,9 @@ function App() {
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem)
       .sort((a,b) => {
+        if (a.urgency === "") {
+          a.urgency = "5";
+        }
         return a.urgency - b.urgency;
       })
     )
@@ -63,6 +66,9 @@ function App() {
     setTodoItemsArray(prevArray => prevArray.concat(completedItemsArray.filter(item => {
       return completedItemsArray.indexOf(item) === id;
     })).sort((a,b) => {
+         if (a.urgency === "") {
+           a.urgency = "5";
+         }
          return a.urgency - b.urgency;
        })
        .map(item => {
