@@ -1,6 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import EditModal from "./EditModal";
+import "./TodoItemsList Styles.css";
 
 function TodoItemsList(props) {
   
@@ -18,13 +19,15 @@ function TodoItemsList(props) {
   )
 
   return (
-    <div>
+    <div className="todoItemsList">
       {todoItems}
       <EditModal editModal={props.editModal}
                  todoItem={props.todoItem}
                  todoItemsArray={props.todoItemsArray}
                  handleChange={props.handleChange}
-                 handleSaveEdit={props.handleSaveEdit} />
+                 handleSaveEdit={props.handleSaveEdit}
+                 handleCancelEdit={props.handleCancelEdit}
+      />
     </div>
   )
 }

@@ -24,6 +24,7 @@ function EditModal(props) {
           <option value="5">5 - Least Urgent</option>        
         </select>
         <input type="submit" value="Save Changes" />
+        <button type="button" onClick={props.handleCancelEdit}>Cancel</button>
       </form>
     </div>
   )

@@ -110,6 +110,20 @@ function App() {
       show: false,
       itemToEdit: ""
     })
+    setTodoItem({ 
+      name: "",
+      urgency: "",
+      completed: false
+    });
+    event.preventDefault();
+  }
+
+  //closes Edit Modal when "Cancel" button is clicked
+  function handleCancelEdit(event) {
+    setEditModal({
+      show: false,
+      itemToEdit: ""
+    })
     event.preventDefault();
   }
 
@@ -135,6 +149,7 @@ function App() {
                      handleEditButton={handleEditButton}
                      handleChange={handleChange}
                      handleSaveEdit={handleSaveEdit}
+                     handleCancelEdit={handleCancelEdit}
                      handleRemove={handleRemove}
                      editModal={editModal}
       />
