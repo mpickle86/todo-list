@@ -1,0 +1,58 @@
+.completedItem {
+  display: flex;
+  background-color: rgb(220, 220, 220);
+  box-shadow: 0 0 3px gray;
+  width: 100%;
+  max-width: 800px;
+  height: 40px;
+  margin: 4px;
+  padding: 0 10px 0 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type=checkbox] {
+  opacity: 0;
+}
+
+.completedCheckbox {
+  padding: 10px;
+  background-image: url("./Checkbox Checked.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.completedCheckbox:hover {
+  animation-name: check-fade-out;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes check-fade-out {
+  from {background-image: url("./Checkbox Checked.png");}
+  to {background-image: url("./Checkbox Unchecked.png");}
+}
+
+.removeButtonGray {
+  display: block;
+  height: 28px;
+}
+
+.removeButtonBlue {
+  display: none;
+  height: 28px;
+}
+
+.removeButton:hover .removeButtonBlue {
+  display: block;
+}
+
+.removeButton:hover .removeButtonGray {
+  display: none;
+}
+
+.completedItemName {
+  font-family: Verdana, sans-serif;
+  text-decoration: line-through;
+}

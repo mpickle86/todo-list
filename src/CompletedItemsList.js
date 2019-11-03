@@ -1,5 +1,6 @@
 import React from "react";
 import CompletedItem from "./CompletedItem";
+import "./CompletedItemsList Styles.css";
 
 function CompletedItemsList(props) {
   //creates CompletedItem components
@@ -12,10 +13,10 @@ function CompletedItemsList(props) {
               handleUncheck={props.handleUncheck}
               handleRemove={props.handleRemove}
     />
-)
+  )
 
   return (
-    <div>
+    <div className="completedItemsList">
       <h3>Completed Items:</h3>
       {completedItems}
     </div>

@@ -1,0 +1,93 @@
+.todoItem {
+  display: flex;
+  background-color: white;
+  box-shadow: 0 0 3px gray;
+  width: 100%;
+  max-width: 800px;
+  height: 40px;
+  margin: 4px;
+  padding: 0 5px 0 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.urgency1 {
+  background-color: rgb(255, 195, 195);
+}
+
+.urgency2 {
+  background-color: rgb(255, 215, 195);
+}
+
+.urgency3 {
+  background-color: rgb(255, 235, 195);
+}
+
+.urgency4 {
+  background-color: rgb(255, 255, 205);
+}
+
+.urgency5 {
+  background-color: white;
+}
+
+input[type=checkbox] {
+  opacity: 0;
+}
+
+.checkbox {
+  padding: 10px;
+  background-image: url("./Checkbox Unchecked.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkbox:hover {
+  animation-name: check-fade-in;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes check-fade-in {
+  from {background-image: url("./Checkbox Unchecked.png");}
+  to {background-image: url("./Checkbox Checked.png");}
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grayButton {
+  display: block;
+  height: 28px;
+  padding: 5px;
+}
+
+.blueButton {
+  display: none;
+  height: 28px;
+  padding: 5px;
+}
+
+.removeButton:hover #removeButtonBlue {
+  display: block;
+}
+
+.removeButton:hover #removeButtonGray {
+  display: none;
+}
+
+.editButton:hover #editButtonBlue {
+  display: block;
+}
+
+.editButton:hover #editButtonGray {
+  display: none;
+}
+
+.itemName {
+  font-family: Verdana, sans-serif;
+}
