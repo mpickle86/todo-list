@@ -10,7 +10,7 @@ function TodoItem(props) {
 
   return (
     <div className={"todoItem " + urgencyClass}>
-      <div>
+      <div className="itemNameContainer">
         <span className="checkbox"
               onClick={() => props.handleCheck(props.id)}  
         >

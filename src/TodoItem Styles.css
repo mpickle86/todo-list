@@ -35,6 +35,12 @@ input[type=checkbox] {
   opacity: 0;
 }
 
+.itemNameContainer {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
 .checkbox {
   padding: 10px;
   background-image: url("./Checkbox Unchecked.png");
@@ -90,4 +96,7 @@ input[type=checkbox] {
 
 .itemName {
   font-family: Verdana, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

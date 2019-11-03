@@ -6,7 +6,7 @@ import deleteIconGray from "./Delete Icon Gray.png";
 function CompletedItem(props) {
   return (
     <div className="completedItem">
-      <div>
+      <div className="itemNameContainer">
         <span className="completedCheckbox"
               onClick={() => props.handleUncheck(props.id)}
         >
