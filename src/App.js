@@ -7,7 +7,7 @@ import CompletedItemsList from "./CompletedItemsList";
 function App() {
   const [todoItem, setTodoItem] = useReducer(
     (state, newState) => ({...state, ...newState}),
-    { name: "", urgency: "", completed: false }
+    { name: "", urgency: "5", completed: false }
   );
 
   //initializes todoItemsArray from localStorage
@@ -34,15 +34,12 @@ function App() {
   function handleSubmit(event) {
     setTodoItemsArray(prevArray => prevArray.concat(todoItem)
       .sort((a,b) => {
-        if (a.urgency === "") {
-          a.urgency = "5";
-        }
         return a.urgency - b.urgency;
       })
     )
     setTodoItem({ 
       name: "",
-      urgency: "",
+      urgency: "5",
       completed: false
     });
     event.preventDefault();
@@ -66,9 +63,6 @@ function App() {
     setTodoItemsArray(prevArray => prevArray.concat(completedItemsArray.filter(item => {
       return completedItemsArray.indexOf(item) === id;
     })).sort((a,b) => {
-         if (a.urgency === "") {
-           a.urgency = "5";
-         }
          return a.urgency - b.urgency;
        })
        .map(item => {
@@ -118,7 +112,7 @@ function App() {
     })
     setTodoItem({ 
       name: "",
-      urgency: "",
+      urgency: "5",
       completed: false
     });
     event.preventDefault();
