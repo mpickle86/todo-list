@@ -1,17 +1,20 @@
 import React from "react";
+import "./InputBox Styles.css";
 
 function InputBox(props) {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form className="form"
+          onSubmit={props.handleSubmit}
+    >
       <input type="text"
              name="name"
-             id="nameInput"
+             className="nameInput"
              value={props.todoItem.name}
              placeholder="New Todo Item"
              onChange={props.handleChange}
       />
       <select name="urgency"
-              id="urgencyInput"
+              className="urgencyInput"
               value={props.todoItem.urgency}
               onChange={props.handleChange}>
         <option>-Urgency Level-</option>
@@ -21,7 +24,10 @@ function InputBox(props) {
         <option value="4">4</option>
         <option value="5">5 - Least Urgent</option>        
       </select>
-      <input type="submit" value="Add" />
+      <input type="submit"
+             value="Add"
+             className="addButton"
+      />
     </form>
   );
 }
