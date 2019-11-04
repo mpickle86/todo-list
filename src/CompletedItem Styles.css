@@ -13,6 +13,8 @@
 
 input[type=checkbox] {
   opacity: 0;
+  height: 0;
+  width: 0;
 }
 
 .itemNameContainer {
@@ -22,13 +24,14 @@ input[type=checkbox] {
 }
 
 .completedCheckbox {
-  padding: 10px;
+  padding: 15px;
   background-image: url("./Checkbox Checked.png");
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .completedCheckbox:hover {
+  cursor: pointer;
   animation-name: check-fade-out;
   animation-duration: .5s;
   animation-iteration-count: 1;
@@ -52,10 +55,12 @@ input[type=checkbox] {
 
 .removeButton:hover .removeButtonBlue {
   display: block;
+  cursor: pointer;
 }
 
 .removeButton:hover .removeButtonGray {
   display: none;
+  cursor: pointer;
 }
 
 .completedItemName {
