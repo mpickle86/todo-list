@@ -17,7 +17,7 @@ function CompletedItemsList(props) {
 
   return (
     <div className="completedItemsList">
-      <h3>Completed Items:</h3>
+      <header className="completedHeader">Completed Items:</header>
       {completedItems}
     </div>
   )
