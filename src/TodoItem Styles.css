@@ -71,13 +71,13 @@ input[type=checkbox] {
 
 .grayButton {
   display: block;
-  height: 28px;
+  height: 26px;
   padding: 5px;
 }
 
 .blueButton {
   display: none;
-  height: 28px;
+  height: 26px;
   padding: 5px;
 }
 

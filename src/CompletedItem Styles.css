@@ -45,12 +45,12 @@ input[type=checkbox] {
 
 .removeButtonGray {
   display: block;
-  height: 28px;
+  height: 26px;
 }
 
 .removeButtonBlue {
   display: none;
-  height: 28px;
+  height: 26px;
 }
 
 .removeButton:hover .removeButtonBlue {
