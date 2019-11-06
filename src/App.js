@@ -20,7 +20,11 @@ function App() {
   const initialCompletedArray = JSON.parse(initialCompletedArrayString);
   const [completedItemsArray, setCompletedItemsArray] = useState(initialCompletedArray || []);
 
-  const [editModal, setEditModal] = useState({ show: false, itemToEdit: "" });
+  const [editModal, setEditModal] = useState({
+    show: false,
+    itemToEditId: "",
+    itemToEditName: ""
+  });
 
   //handles controlled inputs for name and urgency
   function handleChange(event) {
@@ -88,10 +92,11 @@ function App() {
   }
 
   //opens EditModal when Edit button is clicked
-  function handleEditButton(id) {
+  function handleEditButton(id, name) {
     setEditModal({
       show: true,
-      itemToEdit: id
+      itemToEditId: id,
+      itemToEditName: name
     });
   }
 
@@ -99,7 +104,7 @@ function App() {
   //and hides EditModal when "Save Changes" button is clicked
   function handleSaveEdit(event) {
     setTodoItemsArray(prevArray => prevArray.filter(item => {
-      return prevArray.indexOf(item) !== editModal.itemToEdit;
+      return prevArray.indexOf(item) !== editModal.itemToEditId;
     })
     .concat(todoItem)
       .sort((a,b) => {
@@ -108,7 +113,8 @@ function App() {
     )
     setEditModal({
       show: false,
-      itemToEdit: ""
+      itemToEditId: "",
+      itemToEditName: ""
     })
     setTodoItem({ 
       name: "",
@@ -122,7 +128,8 @@ function App() {
   function handleCancelEdit(event) {
     setEditModal({
       show: false,
-      itemToEdit: ""
+      itemToEditId: "",
+      itemToEditName: ""
     })
     event.preventDefault();
   }

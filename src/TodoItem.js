@@ -22,7 +22,7 @@ function TodoItem(props) {
       </div>
       <div className="buttonContainer">
         <div className="editButton"
-             onClick={() => props.handleEditButton(props.id)}
+             onClick={() => props.handleEditButton(props.id, props.name)}
         >
           <img src={editIconBlue}
                className="blueButton"

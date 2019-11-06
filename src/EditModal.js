@@ -1,19 +1,22 @@
 import React from "react";
-import "./EditModalStyles.css";
+import "./EditModal Styles.css";
 
 function EditModal(props) {
   return (
     <div className={props.editModal.show ? "editModal" : "hidden"}>
-      <form onSubmit={props.handleSaveEdit}>
+      <form onSubmit={props.handleSaveEdit}
+            className="editForm"
+      >
+        <header>Edit "{props.editModal.itemToEditName}"</header>
         <input type="text"
               name="name"
-              id="nameInput"
+              className="editNameInput"
               value={props.todoItem.name}
               placeholder="Rename Todo Item"
               onChange={props.handleChange}
         />
         <select name="urgency"
-                id="urgencyInput"
+                className="editUrgencyInput"
                 value={props.todoItem.urgency}
                 onChange={props.handleChange}>
           <option>-Urgency Level-</option>
@@ -23,8 +26,16 @@ function EditModal(props) {
           <option value="4">4</option>
           <option value="5">5 - Least Urgent</option>        
         </select>
-        <input type="submit" value="Save Changes" />
-        <button type="button" onClick={props.handleCancelEdit}>Cancel</button>
+        <div>
+          <input type="submit"
+                value="Save"
+                className="editModalButton"
+          />
+          <button type="button"
+                  className="editModalButton"
+                  onClick={props.handleCancelEdit}
+          >Cancel</button>
+        </div>
       </form>
     </div>
   )
