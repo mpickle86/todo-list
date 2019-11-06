@@ -4,10 +4,10 @@ import "./EditModal Styles.css";
 function EditModal(props) {
   return (
     <div className={props.editModal.show ? "editModal" : "hidden"}>
+      <header className="editHeader">Edit "{props.editModal.itemToEditName}"</header>
       <form onSubmit={props.handleSaveEdit}
             className="editForm"
       >
-        <header>Edit "{props.editModal.itemToEditName}"</header>
         <input type="text"
               name="name"
               className="editNameInput"
