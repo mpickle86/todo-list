@@ -1,7 +1,7 @@
 import React from "react";
-import "./CompletedItem Styles.css";
-import deleteIconBlue from "./Delete Icon Blue.png";
-import deleteIconGray from "./Delete Icon Gray.png";
+import "../Styles/CompletedItem Styles.css";
+import deleteIconBlue from "../Graphics/Delete Icon Blue.png";
+import deleteIconGray from "../Graphics/Delete Icon Gray.png";
 
 function CompletedItem(props) {
   return (

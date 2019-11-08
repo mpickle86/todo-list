@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useReducer} from 'react';
-import './App.css';
+import React, {useState, useEffect, useReducer} from "react";
+import "../Styles/App.css";
 import InputBox from "./InputBox";
 import TodoItemsList from "./TodoItemsList";
 import CompletedItemsList from "./CompletedItemsList";

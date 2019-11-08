@@ -1,5 +1,5 @@
 import React from "react";
-import "./EditModal Styles.css";
+import "../Styles/EditModal Styles.css";
 
 function EditModal(props) {
   return (

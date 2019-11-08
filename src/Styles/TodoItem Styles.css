@@ -45,7 +45,7 @@ input[type=checkbox] {
 
 .checkbox {
   padding: 15px;
-  background-image: url("./Checkbox Unchecked.png");
+  background-image: url("../Graphics/Checkbox Unchecked.png");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -59,8 +59,8 @@ input[type=checkbox] {
 }
 
 @keyframes check-fade-in {
-  from {background-image: url("./Checkbox Unchecked.png");}
-  to {background-image: url("./Checkbox Checked.png");}
+  from {background-image: url("../Graphics/Checkbox Unchecked.png");}
+  to {background-image: url("../Graphics/Checkbox Checked.png");}
 }
 
 .buttonContainer {
