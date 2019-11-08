@@ -1,9 +1,9 @@
 import React from "react";
-import "./TodoItem Styles.css";
-import deleteIconGray from "./Delete Icon Gray.png";
-import deleteIconBlue from "./Delete Icon Blue.png";
-import editIconGray from "./Edit Icon Gray.png";
-import editIconBlue from "./Edit Icon Blue.png";
+import "../Styles/TodoItem Styles.css";
+import deleteIconGray from "../Graphics/Delete Icon Gray.png";
+import deleteIconBlue from "../Graphics/Delete Icon Blue.png";
+import editIconGray from "../Graphics/Edit Icon Gray.png";
+import editIconBlue from "../Graphics/Edit Icon Blue.png";
 
 function TodoItem(props) {
   const urgencyClass = "urgency" + props.urgency;

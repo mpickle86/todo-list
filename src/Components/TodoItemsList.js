@@ -1,7 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import EditModal from "./EditModal";
-import "./TodoItemsList Styles.css";
+import "../Styles/TodoItemsList Styles.css";
 
 function TodoItemsList(props) {
   

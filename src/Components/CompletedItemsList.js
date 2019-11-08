@@ -1,6 +1,6 @@
 import React from "react";
 import CompletedItem from "./CompletedItem";
-import "./CompletedItemsList Styles.css";
+import "../Styles/CompletedItemsList Styles.css";
 
 function CompletedItemsList(props) {
   //creates CompletedItem components
