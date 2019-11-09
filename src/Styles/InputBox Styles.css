@@ -8,7 +8,7 @@
 
 .nameInput {
   height: 40px;
-  width: 224px;
+  width: 225px;
   margin: 5px;
   padding: 0 10px 0 10px;
   font-family: Verdana, sans-serif;
@@ -19,11 +19,13 @@
 
 .urgencyInput {
   height: 40px;
+  width: 165px;
   margin: 5px;
   padding: 0 5px 0 5px;
   font-family: Verdana, sans-serif;
   font-size: 16px;
   border: 0;
+  background-color: white;
   box-shadow: 0 0 3px gray;
 }
 
