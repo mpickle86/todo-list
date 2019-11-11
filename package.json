@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://mpickle86.github.io/todo-list",
+=======
+  "homepage": "http://mpickle86.github.io/todo-list",
+>>>>>>> d5171e13bc3108255630b44711b8e4700acff1fd
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
