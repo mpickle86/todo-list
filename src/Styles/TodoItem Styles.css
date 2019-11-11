@@ -50,7 +50,7 @@ input[type=checkbox] {
   background-repeat: no-repeat;
 }
 
-@media (hover:hover) {
+@media only screen and (min-width: 801px) {
   .checkbox:hover {
     cursor: pointer;
     animation-name: check-fade-in;
@@ -83,7 +83,7 @@ input[type=checkbox] {
   padding: 5px;
 }
 
-@media (hover:hover) {
+@media only screen and (min-width: 801px) {
   .removeButton:hover #removeButtonBlue {
     display: block;
     cursor: pointer;
