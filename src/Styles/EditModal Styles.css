@@ -72,11 +72,23 @@
   box-shadow: 1px 1px 3px gray;
   border: 0;
 }
-  
-.editModalButton:hover {
-  cursor: pointer;
-  background-color: rgb(43, 108, 224);
-  color: white;
-  border: 0;
-  box-shadow: 0;
+ 
+@media (hover:hover) {
+  .editModalButton:hover {
+    cursor: pointer;
+    background-color: rgb(43, 108, 224);
+    color: white;
+    border: 0;
+    box-shadow: 0;
+  }
+}
+
+@media (hover:none) {
+  .editModalButton:active {
+    cursor: pointer;
+    background-color: rgb(43, 108, 224);
+    color: white;
+    border: 0;
+    box-shadow: 0;
+  }
 }

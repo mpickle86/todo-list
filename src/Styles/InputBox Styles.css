@@ -47,12 +47,24 @@
   box-shadow: 1px 1px 3px gray;
   border: 0;
 }
-  
-.addButton:hover {
-  cursor: pointer;
-  background-color: rgb(43, 108, 224);
-  color: white;
-  border: 0;
-  box-shadow: 0;
+
+@media (hover:hover) {
+  .addButton:hover {
+    cursor: pointer;
+    background-color: rgb(43, 108, 224);
+    color: white;
+    border: 0;
+    box-shadow: 0;
+  }
+}
+
+@media (hover:none) {
+  .addButton:active {
+    cursor: pointer;
+    background-color: rgb(43, 108, 224);
+    color: white;
+    border: 0;
+    box-shadow: 0;
+  }
 }
 
