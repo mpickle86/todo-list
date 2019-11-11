@@ -50,12 +50,14 @@ input[type=checkbox] {
   background-repeat: no-repeat;
 }
 
-.checkbox:hover {
-  cursor: pointer;
-  animation-name: check-fade-in;
-  animation-duration: .5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+@media (hover:hover) {
+  .checkbox:hover {
+    cursor: pointer;
+    animation-name: check-fade-in;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes check-fade-in {
@@ -81,24 +83,26 @@ input[type=checkbox] {
   padding: 5px;
 }
 
-.removeButton:hover #removeButtonBlue {
-  display: block;
-  cursor: pointer;
-}
+@media (hover:hover) {
+  .removeButton:hover #removeButtonBlue {
+    display: block;
+    cursor: pointer;
+  }
 
-.removeButton:hover #removeButtonGray {
-  display: none;
-  cursor: pointer;
-}
+  .removeButton:hover #removeButtonGray {
+    display: none;
+    cursor: pointer;
+  }
 
-.editButton:hover #editButtonBlue {
-  display: block;
-  cursor: pointer;
-}
+  .editButton:hover #editButtonBlue {
+    display: block;
+    cursor: pointer;
+  }
 
-.editButton:hover #editButtonGray {
-  display: none;
-  cursor: pointer;
+  .editButton:hover #editButtonGray {
+    display: none;
+    cursor: pointer;
+  }
 }
 
 .itemName {

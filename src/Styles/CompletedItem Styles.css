@@ -30,12 +30,14 @@ input[type=checkbox] {
   background-repeat: no-repeat;
 }
 
-.completedCheckbox:hover {
-  cursor: pointer;
-  animation-name: check-fade-out;
-  animation-duration: .5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+@media (hover:hover) {
+  .completedCheckbox:hover {
+    cursor: pointer;
+    animation-name: check-fade-out;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes check-fade-out {
@@ -53,14 +55,16 @@ input[type=checkbox] {
   height: 26px;
 }
 
-.removeButton:hover .removeButtonBlue {
-  display: block;
-  cursor: pointer;
-}
+@media (hover:hover) {
+  .removeButton:hover .removeButtonBlue {
+    display: block;
+    cursor: pointer;
+  }
 
-.removeButton:hover .removeButtonGray {
-  display: none;
-  cursor: pointer;
+  .removeButton:hover .removeButtonGray {
+    display: none;
+    cursor: pointer;
+  }
 }
 
 .completedItemName {
