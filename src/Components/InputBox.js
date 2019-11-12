@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import "../Styles/InputBox Styles.css";
 
 function InputBox(props) {
+  const buttonClass = useRef("nonTouch");
+
+  useEffect(() => {
+    if ("ontouchstart" in window
+       || navigator.maxTouchPoints > 0
+       || navigator.msMaxTouchPoints > 0) {
+      buttonClass.current = "touch";   
+    }
+  });
+
   return (
     <form className="form"
           onSubmit={props.handleSubmit}
@@ -27,7 +37,7 @@ function InputBox(props) {
       </select>
       <input type="submit"
              value="Add"
-             className="addButton"
+             className={"addButton " + buttonClass.current}
       />
     </form>
   );
