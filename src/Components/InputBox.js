@@ -21,7 +21,7 @@ function InputBox(props) {
              className="nameInput"
              value={props.todoItem.name}
              placeholder="New Todo Item"
-             maxlength="50"
+             maxLength="50"
              onChange={props.handleChange}
       />
       <select name="urgency"

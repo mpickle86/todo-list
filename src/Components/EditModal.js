@@ -23,7 +23,7 @@ function EditModal(props) {
               className="editNameInput"
               value={props.todoItem.name}
               placeholder="Rename Todo Item"
-              maxlength="50"
+              maxLength="50"
               onChange={props.handleChange}
         />
         <select name="urgency"
