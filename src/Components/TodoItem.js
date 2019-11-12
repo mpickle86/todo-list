@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import "../Styles/TodoItem Styles.css";
 import deleteIconGray from "../Graphics/Delete Icon Gray.png";
 import deleteIconBlue from "../Graphics/Delete Icon Blue.png";
@@ -6,12 +6,22 @@ import editIconGray from "../Graphics/Edit Icon Gray.png";
 import editIconBlue from "../Graphics/Edit Icon Blue.png";
 
 function TodoItem(props) {
+  //checks for touchscreen for hover effect management
+  const checkboxClass = useRef("nonTouchCheckbox");
+  useEffect(() => {
+    if ("ontouchstart" in window
+       || navigator.maxTouchPoints > 0
+       || navigator.msMaxTouchPoints > 0) {
+      checkboxClass.current = "touchCheckbox";   
+    }
+  });
+    
   const urgencyClass = "urgency" + props.urgency;
 
   return (
     <div className={"todoItem " + urgencyClass}>
       <div className="itemNameContainer">
-        <span className="checkbox"
+        <span className={"checkbox " + checkboxClass.current}
               onClick={() => props.handleCheck(props.id)}  
         >
           <input type="checkbox"

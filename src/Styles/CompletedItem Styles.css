@@ -30,14 +30,12 @@ input[type=checkbox] {
   background-repeat: no-repeat;
 }
 
-@media only screen and (min-width: 801px) {
-  .completedCheckbox:hover {
-    cursor: pointer;
-    animation-name: check-fade-out;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
+.nonTouchChecked:hover {
+  cursor: pointer;
+  animation-name: check-fade-out;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes check-fade-out {
@@ -55,16 +53,14 @@ input[type=checkbox] {
   height: 26px;
 }
 
-@media only screen and (min-width: 801px) {
-  .removeButton:hover .removeButtonBlue {
-    display: block;
-    cursor: pointer;
-  }
+.removeButton:hover .removeButtonBlue {
+  display: block;
+  cursor: pointer;
+}
 
-  .removeButton:hover .removeButtonGray {
-    display: none;
-    cursor: pointer;
-  }
+.removeButton:hover .removeButtonGray {
+  display: none;
+  cursor: pointer;
 }
 
 .completedItemName {

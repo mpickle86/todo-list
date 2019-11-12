@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import "../Styles/EditModal Styles.css";
 
 function EditModal(props) {
+  //checks for touchscreen for hover effect management
+  const buttonClass = useRef("nonTouchButton");
+  useEffect(() => {
+    if ("ontouchstart" in window
+       || navigator.maxTouchPoints > 0
+       || navigator.msMaxTouchPoints > 0) {
+      buttonClass.current = "touchButton";   
+    }
+  });
+
   return (
     <div className={props.editModal.show ? "editModal" : "hidden"}>
       <header className="editHeader">Edit "{props.editModal.itemToEditName}"</header>
@@ -30,10 +40,10 @@ function EditModal(props) {
         <div>
           <input type="submit"
                 value="Save"
-                className="editModalButton"
+                className={"editModalButton " + buttonClass.current}
           />
           <button type="button"
-                  className="editModalButton"
+                  className={"editModalButton " + buttonClass.current}
                   onClick={props.handleCancelEdit}
           >Cancel</button>
         </div>
